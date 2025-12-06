@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* No global colors; components decide their own colors */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+}
+
+:root {
+  --bg: #0b1020;
+  --card: #0f162e;
+  --muted: #8da2c0;
+  --text: #e8eefb;
+  --primary: #6aa6ff;
+  --accent: #a47cff;
+  --ring: rgba(106, 166, 255, 0.35);
+}
+
+body {
+  background: radial-gradient(1200px 800px at 80% -10%, #1b2344 0%, #0b1020 55%) fixed,
+              radial-gradient(900px 700px at -10% 120%, #1c1331 0%, #0b1020 60%) fixed,
+              var(--bg);
+  color: var(--text);
+}
+
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+}
+
+.btn {
+  @apply inline-flex items-center gap-2 rounded-lg px-4 py-2 font-medium transition-transform;
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--text);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px var(--ring);
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, rgba(106,166,255,0.25), rgba(106,166,255,0.12));
+  border: 1px solid rgba(106,166,255,0.45);
+}
+
+.input {
+  @apply w-full rounded-lg px-3 py-2 outline-none;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--text);
+}
+
+.input:focus {
+  box-shadow: 0 0 0 6px var(--ring);
+  border-color: var(--primary);
+}
+
+.badge {
+  @apply inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: var(--muted);
+}
+
+.card {
+  @apply rounded-2xl p-5;
+}
+
+.shadow-ambient {
+  box-shadow:
+    0 30px 80px rgba(106, 166, 255, 0.15),
+    0 10px 30px rgba(164, 124, 255, 0.12);
+}
+
+.hr {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+}
